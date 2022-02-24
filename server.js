@@ -17,7 +17,10 @@ app.set(
   path.join(path.dirname(fileURLToPath(import.meta.url)), 'views')
 )
 app.set('view engine', 'ejs')
-
+app.use(function(req,res, next) {
+  req.date = new Date().toLocaleDateString()
+  next()
+})
 // middleware
 app.use(logger('dev'))
 app.use(express.json())
