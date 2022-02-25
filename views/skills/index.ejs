@@ -15,6 +15,13 @@
   <ul>
     <% skills.forEach(function(skill) { %>
       <li>
+        <form
+          action="/skills/<%= skill._id %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+        >
+          <button type="submit">X</button>
+        </form>
         <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
           - 
         <%= skill.yes ? 'yes' : 'in progress' %>
